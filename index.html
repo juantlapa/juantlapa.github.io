@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Juan Jesús Tlapalamatl</title>
+  <title>Juan Jesús Tlapalamatl — Content Strategist</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -73,6 +73,7 @@
       font-weight: 500;
       color: var(--body-text);
       text-decoration: none;
+      white-space: nowrap;
       transition: color 0.15s;
     }
     .nav-links a:hover { color: var(--primary); }
@@ -143,6 +144,7 @@
       display: flex;
       align-items: center;
       gap: 0.6rem;
+      white-space: nowrap;
     }
     .section-title::before {
       content: "";
@@ -193,11 +195,12 @@
       margin-bottom: 1rem;
     }
     .hero-tagline {
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       font-weight: 400;
       color: rgba(255,255,255,0.75);
       margin-bottom: 2rem;
-      max-width: 480px;
+      max-width: 500px;
+      line-height: 1.6;
     }
     .hero-ctas {
       display: flex;
@@ -320,6 +323,14 @@
       padding: 0.25rem 0.65rem;
       border-radius: 4px;
     }
+    .chip-muted {
+      background: var(--bg-alt);
+      color: #6b7280;
+      font-size: 0.82rem;
+      font-weight: 500;
+      padding: 0.25rem 0.65rem;
+      border-radius: 4px;
+    }
 
     /* ─── PROYECTOS ───────────────────────────────────── */
     #proyectos { background: var(--bg-alt); }
@@ -350,7 +361,7 @@
       margin-bottom: 0.75rem;
     }
     .badge-personal { background: var(--primary-light); color: var(--primary); }
-    .badge-wip { background: #fef3c7; color: #92400e; }
+    .badge-work { background: #ecfdf5; color: #065f46; }
     .project-title {
       font-size: 1rem;
       font-weight: 700;
@@ -371,6 +382,86 @@
       margin-top: 0.75rem;
       font-size: 0.8rem;
       color: #6b7280;
+    }
+    .project-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.9rem;
+    }
+    .stat-chip {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--primary);
+      background: var(--primary-light);
+      padding: 0.2rem 0.55rem;
+      border-radius: 3px;
+    }
+
+    /* ─── CONTENIDO HUB ───────────────────────────────── */
+    #contenido { background: var(--white); }
+
+    .content-hub-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+    @media (max-width: 640px) {
+      .content-hub-grid { grid-template-columns: 1fr; }
+    }
+
+    .content-subsection-title {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.6rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* Placeholder elegante */
+    .coming-soon-block {
+      border: 1.5px dashed var(--border);
+      border-radius: var(--radius);
+      padding: 2.5rem 1.75rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.6rem;
+      background: var(--bg-alt);
+    }
+    .coming-soon-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #9ca3af;
+    }
+    .coming-soon-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+    .coming-soon-sub {
+      font-size: 0.875rem;
+      color: #6b7280;
+      line-height: 1.55;
+    }
+
+    /* Video grid — listo para cards reales */
+    .video-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    /* Blog list — listo para artículos reales */
+    .blog-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
     }
 
     /* ─── CONTACTO / FOOTER ───────────────────────────── */
@@ -400,6 +491,8 @@
       display: flex;
       gap: 1.5rem;
       align-items: center;
+      flex-wrap: wrap;
+      justify-content: center;
     }
     .footer-link {
       color: rgba(255,255,255,0.75);
@@ -430,7 +523,8 @@
         <li><a href="#sobre-mi" data-i18n="navAbout">Sobre mí</a></li>
         <li><a href="#experiencia" data-i18n="navExperience">Experiencia</a></li>
         <li><a href="#habilidades" data-i18n="navSkills">Habilidades</a></li>
-        <li><a href="#proyectos" data-i18n="navProjects">Proyectos</a></li>
+        <li><a href="#proyectos" data-i18n="navProjects">Trabajo destacado</a></li>
+        <li><a href="#contenido" data-i18n="navContent">Contenido</a></li>
         <li><a href="#contacto" data-i18n="navContact">Contacto</a></li>
       </ul>
       <button class="lang-toggle" id="lang-btn" onclick="toggleLang()" aria-label="Switch language">
@@ -448,9 +542,9 @@
   <section id="hero">
     <div class="hero-inner">
       <div class="hero-text">
-        <p class="hero-label" data-i18n="heroLabel">Portafolio profesional</p>
+        <p class="hero-label" data-i18n="heroLabel">Estrategia de contenido · EdTech</p>
         <h1 class="hero-name">Juan Jesús<br>Tlapalamatl</h1>
-        <p class="hero-tagline" data-i18n="heroTagline">Comunicador que entiende tecnología</p>
+        <p class="hero-tagline" data-i18n="heroTagline">Estratega de contenido con fluencia tecnológica. Diseña programas, lidera producción multimedia y traduce lo técnico en aprendizaje.</p>
         <div class="hero-ctas">
           <a href="https://www.linkedin.com/in/juan-tlapalamatl/" target="_blank" rel="noopener" class="btn btn-white">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
@@ -477,10 +571,10 @@
     <div class="section-inner">
       <h2 class="section-title" data-i18n="aboutTitle">Sobre mí</h2>
       <p class="profile-text lang-block" data-lang="es">
-        Comunicador con más de cuatro años de experiencia diseñando y coordinando programas educativos digitales. Construye puentes entre tecnología y personas no técnicas: entiende cómo funciona el código y sabe cómo explicarlo para que alguien que nunca ha programado pueda aprender. Actualmente en transición hacia el desarrollo web fullstack, con la convicción de que los mejores productos digitales los construyen quienes entienden tanto a los usuarios como a las herramientas.
+        Estratega de contenido con formación en semiótica y más de cuatro años de experiencia diseñando experiencias de aprendizaje y producción multimedia en el sector EdTech. Co-diseña programas de tecnología, lidera producción de video a escala y traduce conceptos técnicos complejos para audiencias no técnicas. Su fluencia tecnológica —adquirida desde la enseñanza y el trabajo directo con desarrolladores— es un diferenciador estratégico, no su oficio. Entiende cómo funciona el código; su trabajo es convertir ese conocimiento en contenido que transforma audiencias.
       </p>
       <p class="profile-text lang-block" data-lang="en" style="display:none;">
-        Communications professional with over four years of experience designing and coordinating digital learning programs. He builds bridges between technology and non-technical audiences: he understands how code works and knows how to explain it so anyone can learn. Currently transitioning into fullstack web development, with the conviction that the best digital products are built by people who understand both users and tools.
+        Content strategist with a background in semiotics and over four years of experience designing learning experiences and multimedia production in the EdTech sector. Co-designs technology programs, leads video production at scale, and translates complex technical concepts for non-technical audiences. His technological fluency—developed through teaching and direct collaboration with developers—is a strategic differentiator, not his trade. He understands how code works; his work is turning that knowledge into content that transforms audiences.
       </p>
     </div>
   </section>
@@ -501,16 +595,18 @@
             <div class="job-period lang-block" data-lang="en" style="display:none;">April 2023 – Present · Aguascalientes, México (remote)</div>
           </div>
           <ul class="job-bullets lang-block" data-lang="es">
-            <li>Co-diseño instruccional de 7 programas de tecnología con desarrolladores de software: JavaScript, React, Node.js, Angular y n8n</li>
-            <li>Lidero salones digitales de ~100 participantes por cohorte; seguimiento de +300 alumnos en programa completo y +800 en bootcamp</li>
-            <li>Área de contenido de video: ~20 videos/mes, ~100 lecciones producidas en total</li>
-            <li>Talleres de IA y programación para audiencias no técnicas en empresa y universidad externa</li>
+            <li>Co-diseño instruccional de 7 programas de tecnología —JavaScript, React, Node.js, Angular y n8n— trabajando directamente con desarrolladores; responsable de que el contenido sea comprensible y pedagógicamente efectivo</li>
+            <li>Lidera el área de producción de video: define línea editorial, coordina editor y mantiene un ritmo sostenido de ~20 videos/mes; ~100 lecciones producidas o adaptadas pedagógicamente en total</li>
+            <li>Coordina salones digitales de ~100 participantes por cohorte; da seguimiento a 300–800 estudiantes por programa para reducir deserción</li>
+            <li>Impartió talleres de IA y programación para audiencias no técnicas en empresa y en universidad externa</li>
+            <li>Adapta contenido técnico complejo para audiencias sin formación tecnológica previa</li>
           </ul>
           <ul class="job-bullets lang-block" data-lang="en" style="display:none;">
-            <li>Co-designed 7 technology programs with software developers: JavaScript, React, Node.js, Angular, and n8n</li>
-            <li>Lead digital classrooms of ~100 participants per cohort; tracking 300+ students in the full program and 800+ in bootcamp</li>
-            <li>Video content area: ~20 videos/month, ~100 lessons produced in total</li>
-            <li>AI and programming workshops for non-technical audiences at a company and an external university</li>
+            <li>Co-designed 7 technology programs—JavaScript, React, Node.js, Angular, and n8n—in direct collaboration with software developers; responsible for making content comprehensible and pedagogically effective</li>
+            <li>Leads the video production area: defines editorial direction, coordinates the video editor, and sustains ~20 videos/month; ~100 lessons produced or pedagogically adapted in total</li>
+            <li>Coordinates digital classrooms of ~100 participants per cohort; tracks 300–800 students per program to reduce dropout rates</li>
+            <li>Delivered AI and programming workshops for non-technical audiences at a corporate setting and an external university</li>
+            <li>Adapts complex technical content for audiences with no prior technology background</li>
           </ul>
         </div>
 
@@ -524,16 +620,18 @@
             <div class="job-period lang-block" data-lang="en" style="display:none;">August 2021 – April 2023 · Aguascalientes, México (remote)</div>
           </div>
           <ul class="job-bullets lang-block" data-lang="es">
-            <li>Diseñé 1 programa de emprendimiento en línea desde cero; coordiné 2 adicionales; ~600 participantes atendidos en total</li>
-            <li>Coordiné sesiones digitales en vivo de ~2 horas con ~100 personas simultáneas</li>
-            <li>Acompañé individualmente a 6–7 emprendedores en procesos de aceleración</li>
+            <li>Diseñó 1 programa de emprendimiento en línea desde cero; coordinó 2 programas adicionales; ~600 participantes atendidos en total</li>
+            <li>Desarrolló currículas adaptadas al tipo y objetivos de cada programa</li>
+            <li>Coordinó sesiones digitales en vivo de ~2 horas con ~100 participantes simultáneos</li>
             <li>32 piezas de video producidas; 5–6 con conducción propia frente a cámara</li>
+            <li>Acompañó individualmente a 6–7 emprendedores en procesos de aceleración</li>
           </ul>
           <ul class="job-bullets lang-block" data-lang="en" style="display:none;">
             <li>Designed 1 online entrepreneurship program from scratch; coordinated 2 additional programs; ~600 participants served in total</li>
+            <li>Developed curricula tailored to each program's specific type and objectives</li>
             <li>Coordinated live digital sessions of ~2 hours with ~100 simultaneous participants</li>
-            <li>Individually mentored 6–7 entrepreneurs through acceleration processes</li>
             <li>32 video pieces produced; 5–6 with on-camera hosting</li>
+            <li>Individually mentored 6–7 entrepreneurs through acceleration processes</li>
           </ul>
         </div>
 
@@ -548,12 +646,12 @@
             <div class="job-period lang-block" data-lang="en" style="display:none;">Partial period during employment at Inadaptados</div>
           </div>
           <ul class="job-bullets lang-block" data-lang="es">
-            <li>Gestión de estrategia de contenido y comunidades digitales para cuentas de terceros</li>
-            <li>Planificación de calendarios editoriales y producción de contenido adaptado a cada canal</li>
+            <li>Gestionó estrategia de contenido y comunidades digitales para cuentas de terceros de forma independiente</li>
+            <li>Planificó calendarios editoriales y produjo piezas de contenido adaptadas a cada canal y audiencia</li>
           </ul>
           <ul class="job-bullets lang-block" data-lang="en" style="display:none;">
-            <li>Managed content strategy and digital communities for third-party accounts</li>
-            <li>Planned editorial calendars and produced content tailored to each platform</li>
+            <li>Managed content strategy and digital communities for third-party accounts on a freelance basis</li>
+            <li>Planned editorial calendars and produced content pieces tailored to each platform and audience</li>
           </ul>
         </div>
 
@@ -568,22 +666,7 @@
       <div class="skills-grid">
 
         <div class="skill-category">
-          <p class="skill-category-label" data-i18n="skillsWeb">Desarrollo Web</p>
-          <div class="chips">
-            <span class="chip">HTML / CSS</span>
-            <span class="chip">JavaScript</span>
-            <span class="chip">Node.js</span>
-            <span class="chip">Express</span>
-            <span class="chip">Angular</span>
-            <span class="chip">MongoDB</span>
-            <span class="chip">React</span>
-            <span class="chip">Git / GitHub</span>
-            <span class="chip">n8n</span>
-          </div>
-        </div>
-
-        <div class="skill-category">
-          <p class="skill-category-label" data-i18n="skillsContent">Producción de Contenido</p>
+          <p class="skill-category-label" data-i18n="skillsMedia">Producción Multimedia</p>
           <div class="chips">
             <span class="chip">CapCut</span>
             <span class="chip">Final Cut Pro</span>
@@ -595,11 +678,22 @@
         </div>
 
         <div class="skill-category">
+          <p class="skill-category-label" data-i18n="skillsInstructional">Diseño Instruccional</p>
+          <div class="chips">
+            <span class="chip">Diseño de programas y currículas</span>
+            <span class="chip">Gestión de LMS</span>
+            <span class="chip">Planificación editorial</span>
+            <span class="chip">Facilitación para audiencias no técnicas</span>
+            <span class="chip">Seguimiento de estudiantes</span>
+          </div>
+        </div>
+
+        <div class="skill-category">
           <p class="skill-category-label" data-i18n="skillsAI">IA Generativa</p>
           <div class="chips">
             <span class="chip">ChatGPT</span>
-            <span class="chip">Gemini</span>
             <span class="chip">Claude</span>
+            <span class="chip">Gemini</span>
             <span class="chip">HeyGen</span>
           </div>
         </div>
@@ -614,9 +708,18 @@
         </div>
 
         <div class="skill-category">
-          <p class="skill-category-label" data-i18n="skillsUX">Diseño UX/UI</p>
+          <p class="skill-category-label" data-i18n="skillsUX">UX/UI</p>
           <div class="chips">
             <span class="chip">Figma <em style="font-style:normal;opacity:0.6;font-size:0.75em;" data-i18n="inProgress">(en proceso)</em></span>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <p class="skill-category-label" data-i18n="skillsWeb">Web (literacy técnica)</p>
+          <div class="chips">
+            <span class="chip-muted">HTML / CSS</span>
+            <span class="chip-muted">Git / GitHub</span>
+            <span class="chip-muted">n8n</span>
           </div>
         </div>
 
@@ -624,11 +727,34 @@
     </div>
   </section>
 
-  <!-- PROYECTOS -->
+  <!-- TRABAJO DESTACADO -->
   <section id="proyectos">
     <div class="section-inner">
-      <h2 class="section-title" data-i18n="projectsTitle">Proyectos</h2>
+      <h2 class="section-title" data-i18n="projectsTitle">Trabajo Destacado</h2>
       <div class="projects-grid">
+
+        <!-- Inadaptados — caso de trabajo -->
+        <div class="project-card">
+          <span class="project-badge badge-work" data-i18n="badgeWork">Trabajo profesional</span>
+          <h3 class="project-title lang-block" data-lang="es">Producción de contenido educativo a escala</h3>
+          <h3 class="project-title lang-block" data-lang="en" style="display:none;">Educational content production at scale</h3>
+          <p class="project-subtitle lang-block" data-lang="es">Inadaptados · Coordinación de contenido y diseño instruccional · 2023–presente</p>
+          <p class="project-subtitle lang-block" data-lang="en" style="display:none;">Inadaptados · Content coordination and instructional design · 2023–present</p>
+          <p class="project-desc lang-block" data-lang="es">
+            Co-diseño instruccional de 7 programas de tecnología en colaboración con desarrolladores de software. Responsable de la línea editorial de video: de la definición pedagógica a la coordinación del editor. Gestión de cohortes de hasta 800 estudiantes.
+          </p>
+          <p class="project-desc lang-block" data-lang="en" style="display:none;">
+            Instructional co-design of 7 technology programs in collaboration with software developers. Responsible for the video editorial line: from pedagogical definition to editor coordination. Cohort management of up to 800 students.
+          </p>
+          <div class="project-stats">
+            <span class="stat-chip lang-block" data-lang="es">7 programas co-diseñados</span>
+            <span class="stat-chip lang-block" data-lang="en" style="display:none;">7 programs co-designed</span>
+            <span class="stat-chip lang-block" data-lang="es">~100 videos producidos</span>
+            <span class="stat-chip lang-block" data-lang="en" style="display:none;">~100 videos produced</span>
+            <span class="stat-chip lang-block" data-lang="es">800+ estudiantes</span>
+            <span class="stat-chip lang-block" data-lang="en" style="display:none;">800+ students</span>
+          </div>
+        </div>
 
         <!-- A pie de página -->
         <div class="project-card">
@@ -646,22 +772,40 @@
           <p class="project-meta lang-block" data-lang="en" style="display:none;">Up to 200 views per episode · ~100 followers · Facebook & Instagram</p>
         </div>
 
-        <!-- Proyecto fullstack -->
-        <div class="project-card">
-          <span class="project-badge badge-wip" data-i18n="badgeWIP">En progreso</span>
-          <h3 class="project-title lang-block" data-lang="es">Proyecto Final Fullstack</h3>
-          <h3 class="project-title lang-block" data-lang="en" style="display:none;">Fullstack Final Project</h3>
-          <p class="project-subtitle lang-block" data-lang="es">Bootcamp Inadaptados · MEAN Stack</p>
-          <p class="project-subtitle lang-block" data-lang="en" style="display:none;">Inadaptados Bootcamp · MEAN Stack</p>
-          <p class="project-desc lang-block" data-lang="es">
-            Proyecto de cierre del curso fullstack, actualmente en desarrollo activo. Construido con MongoDB, Express, Angular y Node.js. Detalles por actualizar al completarse.
-          </p>
-          <p class="project-desc lang-block" data-lang="en" style="display:none;">
-            Capstone project for the fullstack course, currently in active development. Built with MongoDB, Express, Angular, and Node.js. Details to be updated upon completion.
-          </p>
-          <p class="project-meta">
-            <a href="https://github.com/juantlapa" target="_blank" rel="noopener" style="color:inherit;">github.com/juantlapa</a>
-          </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTENIDO HUB -->
+  <section id="contenido">
+    <div class="section-inner">
+      <h2 class="section-title" data-i18n="contentTitle">Contenido</h2>
+      <div class="content-hub-grid">
+
+        <!-- Video -->
+        <div>
+          <p class="content-subsection-title" data-i18n="videoSectionTitle">Video</p>
+          <div class="video-grid">
+            <div class="coming-soon-block">
+              <span class="coming-soon-label" data-i18n="comingSoonVideo">Próximamente</span>
+              <p class="coming-soon-title lang-block" data-lang="es">Reel educativo en producción</p>
+              <p class="coming-soon-title lang-block" data-lang="en" style="display:none;">Educational reel in production</p>
+              <p class="coming-soon-sub" data-i18n="comingSoonVideoSub">Contenido en producción — reel educativo y piezas de video</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Blog -->
+        <div>
+          <p class="content-subsection-title" data-i18n="blogSectionTitle">Blog y Escritura</p>
+          <div class="blog-list">
+            <div class="coming-soon-block">
+              <span class="coming-soon-label" data-i18n="comingSoonBlog">Próximamente</span>
+              <p class="coming-soon-title lang-block" data-lang="es">Artículos en preparación</p>
+              <p class="coming-soon-title lang-block" data-lang="en" style="display:none;">Articles in preparation</p>
+              <p class="coming-soon-sub" data-i18n="comingSoonBlogSub">Artículos sobre estrategia de contenido, EdTech y producción multimedia</p>
+            </div>
+          </div>
         </div>
 
       </div>
@@ -672,7 +816,8 @@
   <footer id="contacto">
     <div class="footer-inner">
       <p class="footer-name">Juan Jesús Tlapalamatl</p>
-      <p class="footer-tagline" data-i18n="heroTagline">Comunicador que entiende tecnología</p>
+      <p class="footer-tagline lang-block" data-lang="es">Estratega de contenido · EdTech · Aguascalientes, México</p>
+      <p class="footer-tagline lang-block" data-lang="en" style="display:none;">Content Strategist · EdTech · Aguascalientes, Mexico</p>
       <div class="footer-links">
         <a href="mailto:jesustlapa00@gmail.com" class="footer-link">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
@@ -687,7 +832,7 @@
           GitHub
         </a>
       </div>
-      <p class="footer-copy">© 2026 Juan Jesús Tlapalamatl · Aguascalientes, México</p>
+      <p class="footer-copy">© 2026 Juan Jesús Tlapalamatl</p>
     </div>
   </footer>
 
